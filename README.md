@@ -27,7 +27,7 @@ the code (60 lines) anywhere in your js code.
 
 Or you can install this as a standalone object if you want.
 
-jDragDliser can be installed as a [planet](https://github.com/lingtalfi/Observer/blob/master/article/article.planetReference.eng.md).
+jDragSlider can be installed as a [planet](https://github.com/lingtalfi/Observer/blob/master/article/article.planetReference.eng.md).
 
 
 
@@ -183,7 +183,7 @@ The arguments
 -----------------
 
 ```js
-void        dragSlider (jHandle, string:closestParentSelector, bool:isHorizontal, fn);
+void        dragSlider (jHandle, string:closestParentSelector, bool:isHorizontal, fn, ?fnEnd);
 ```
 
 - jHandle is a jquery element of your choice representing the slider handle.
@@ -191,7 +191,9 @@ void        dragSlider (jHandle, string:closestParentSelector, bool:isHorizontal
         The parent is the container element that serves as a reference for the calculations.
         It's important that the parent has exactly the size of the slider (no extra padding).
 - isHorizontal: whether your slider is horizontal or vertical        
-- fn: callback responsible for doing the actual drag move.
+- fn: callback triggered while the jHandle is moved.
+        
+        Use it to implement the actual visual drag move.
 
         The callback will be passed two arguments:
          
@@ -205,6 +207,13 @@ void        dragSlider (jHandle, string:closestParentSelector, bool:isHorizontal
             
             The percentage is like the offset, but the range of values grows from 0 to 100.
         
+- fnEnd: callback triggered when the drag ends.
+
+            I found it useful to implement the behaviour where the user just clicks anywhere on 
+            the slider (not just on the handle), and yet you want the slider to be updated as well.
+            
+            Arguments are the same than the fn callback. 
+
 
 
 
