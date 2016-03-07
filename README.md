@@ -213,6 +213,10 @@ void        dragSlider (jHandle, string:closestParentSelector, bool:isHorizontal
 History Log
 ------------------
     
+- 1.1.0 -- 2016-03-07
+
+    - add optional callback triggered when the drag ends
+    
 - 1.0.0 -- 2016-03-05
 
     - initial commit
